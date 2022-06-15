@@ -1,0 +1,61 @@
+{
+  "info": {
+    "ceny": {
+      "jedzenie": 125.27,
+      "narzedzia": 105.0,
+      "programy": 10.0,
+      "ubrania": 10.0
+    },
+    "dlugosc": 5,
+    "gielda": "socjalistyczna",
+    "kara_za_brak_ubrań": 2,
+    "x": 0
+  },
+  "robotnicy": [
+    {
+      "id": 1,
+      "kariera": "programista",
+      "kupowanie": {
+        "typ": "gadzeciarz",
+        "liczba_narzedzi": 100
+      },
+      "poziom": 1,
+      "produkcja": {
+        "typ": "chciwy"
+      },
+      "produktywnosc": {
+        "diamenty": 100.0,
+        "jedzenie": 100,
+        "narzedzia": 100,
+        "programy": 100,
+        "ubrania": 100
+      },
+      "uczenie": {
+        "typ": "student",
+        "okres": 5,
+        "zapas": 2
+      },
+      "zasoby": {
+        "diamenty": 100.0,
+        "jedzenie": 100,
+        "narzedzia": 100,
+        "programy": 100,
+        "ubrania": 100
+      },
+      "zmiana": "rewolucjonista"
+    }
+  ],
+  "spekulanci": [
+    {
+      "id": 12,
+      "kariera": "wypukly",
+      "zasoby": {
+        "diamenty": 100.0,
+        "jedzenie": 100,
+        "narzedzia": 100,
+        "programy": 100,
+        "ubrania": 100
+      }
+    }
+  ]
+}

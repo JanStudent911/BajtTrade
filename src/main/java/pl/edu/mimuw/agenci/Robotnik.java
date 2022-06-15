@@ -1,0 +1,75 @@
+package pl.edu.mimuw.agenci;
+
+import com.squareup.moshi.Json;
+import pl.edu.mimuw.agenci.strategie.Readers.Zmiana;
+import pl.edu.mimuw.agenci.strategie.kupowania.StrategiaKupowania;
+import pl.edu.mimuw.agenci.strategie.produkowania.StrategiaProdukowania;
+import pl.edu.mimuw.agenci.strategie.uczenia.StrategiaUczenia;
+import pl.edu.mimuw.agenci.strategie.zmiany.Rewolucjonista;
+import pl.edu.mimuw.agenci.strategie.zmiany.StrategiaZmianyKariery;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Robotnik extends Agent {
+    public int getAktualny_poziom() {
+        return aktualny_poziom;
+    }
+
+    public KarieraRobotnika getAktualna_kariera() {
+        return aktualna_kariera;
+    }
+
+    public StrategiaKupowania getKupowanie() {
+        return kupowanie;
+    }
+
+    public StrategiaProdukowania getProdukcja() {
+        return produkcja;
+    }
+
+    public StrategiaUczenia getUczenie() {
+        return uczenie;
+    }
+
+
+
+    public Produktywnosc getProduktywnosc() {
+        return produktywnosc;
+    }
+
+    @Json(name = "poziom")
+    private int aktualny_poziom;
+    private transient Map<KarieraRobotnika, Integer> poziomy;
+    @Json(name = "kariera")
+    KarieraRobotnika aktualna_kariera;
+    private StrategiaKupowania kupowanie;
+    private StrategiaProdukowania produkcja;
+    private StrategiaUczenia uczenie;
+    private StrategiaZmianyKariery zmiana;
+    private Produktywnosc produktywnosc;
+
+    public Zmiana getZmiana() {
+        return zmiana.getNazwa();
+    }
+
+    public Robotnik(int id, Zasoby zasoby, KarieraRobotnika kariera, int poziom,
+                    StrategiaKupowania kupowanie, StrategiaProdukowania produkcja,
+                    StrategiaUczenia uczenie, StrategiaZmianyKariery zmiana,
+                    Produktywnosc produktywnosc){
+        super(id, zasoby);
+        poziomy = new HashMap<>();
+        aktualna_kariera = kariera;
+        aktualny_poziom = poziom;
+        poziomy.put(aktualna_kariera, poziom);
+        for( KarieraRobotnika k : KarieraRobotnika.values()){
+            poziomy.putIfAbsent(k, 1);
+        }
+
+        this.kupowanie = kupowanie;
+        this.produkcja = produkcja;
+        this.uczenie = uczenie;
+        this.zmiana = zmiana;
+        this.produktywnosc = produktywnosc;
+    }
+}
