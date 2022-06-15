@@ -1,11 +1,10 @@
 package pl.edu.mimuw.agenci;
 
 import com.squareup.moshi.Json;
-import pl.edu.mimuw.agenci.strategie.Readers.Zmiana;
+import pl.edu.mimuw.agenci.strategie.Adapters.Zmiana;
 import pl.edu.mimuw.agenci.strategie.kupowania.StrategiaKupowania;
 import pl.edu.mimuw.agenci.strategie.produkowania.StrategiaProdukowania;
 import pl.edu.mimuw.agenci.strategie.uczenia.StrategiaUczenia;
-import pl.edu.mimuw.agenci.strategie.zmiany.Rewolucjonista;
 import pl.edu.mimuw.agenci.strategie.zmiany.StrategiaZmianyKariery;
 
 import java.util.HashMap;

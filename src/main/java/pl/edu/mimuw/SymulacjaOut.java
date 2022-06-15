@@ -2,9 +2,9 @@ package pl.edu.mimuw;
 
 import pl.edu.mimuw.agenci.Robotnik;
 import pl.edu.mimuw.agenci.Spekulant;
-import pl.edu.mimuw.agenci.strategie.Readers.RobotnikOut;
-import pl.edu.mimuw.agenci.strategie.Readers.SpekulantOut;
-import pl.edu.mimuw.agenci.strategie.Readers.SymulacjaReader;
+import pl.edu.mimuw.agenci.strategie.Adapters.RobotnikOut;
+import pl.edu.mimuw.agenci.strategie.Adapters.SpekulantOut;
+import pl.edu.mimuw.agenci.strategie.Adapters.SymulacjaReader;
 
 import java.util.ArrayList;
 

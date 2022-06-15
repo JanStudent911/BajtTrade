@@ -1,8 +1,6 @@
 package pl.edu.mimuw.agenci;
 
 
-import pl.edu.mimuw.agenci.strategie.Readers.ZasobyReader;
-
 public abstract class Agent {
     protected int id;
     protected Zasoby zasoby;

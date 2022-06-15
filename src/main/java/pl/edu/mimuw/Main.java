@@ -6,15 +6,13 @@ import com.squareup.moshi.Moshi;
 import com.squareup.moshi.JsonReader;
 import com.squareup.moshi.adapters.PolymorphicJsonAdapterFactory;
 import okio.Okio;
-import pl.edu.mimuw.agenci.ZasobyAdapter;
-import pl.edu.mimuw.agenci.strategie.Readers.SymulacjaReader;
+import pl.edu.mimuw.agenci.strategie.Adapters.SymulacjaReader;
 import pl.edu.mimuw.agenci.strategie.kupowania.*;
 import pl.edu.mimuw.agenci.strategie.produkowania.*;
 import pl.edu.mimuw.agenci.strategie.uczenia.*;
 import pl.edu.mimuw.agenci.strategie.zmiany.Konserwatysta;
 import pl.edu.mimuw.agenci.strategie.zmiany.Rewolucjonista;
 import pl.edu.mimuw.agenci.strategie.zmiany.StrategiaZmianyKariery;
-import pl.edu.mimuw.agenci.ZasobyAdapter;
 
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -49,7 +47,6 @@ public class Main {
                 .add(PolymorphicJsonAdapterFactory.of(StrategiaZmianyKariery.class, "zmiana")
                         .withSubtype(Rewolucjonista.class, "rewolucjonista")
                         .withSubtype(Konserwatysta.class, "konserwatysta"))
-                .add(new ZasobyAdapter())
                 .build();
 
 

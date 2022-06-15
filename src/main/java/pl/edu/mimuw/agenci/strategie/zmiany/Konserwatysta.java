@@ -1,6 +1,6 @@
 package pl.edu.mimuw.agenci.strategie.zmiany;
 
-import pl.edu.mimuw.agenci.strategie.Readers.Zmiana;
+import pl.edu.mimuw.agenci.strategie.Adapters.Zmiana;
 
 public class Konserwatysta extends StrategiaZmianyKariery{
     public Konserwatysta(){

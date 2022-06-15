@@ -1,4 +1,4 @@
-package pl.edu.mimuw.agenci.strategie.Readers;
+package pl.edu.mimuw.agenci.strategie.Adapters;
 
 import pl.edu.mimuw.agenci.Zasoby;
 
