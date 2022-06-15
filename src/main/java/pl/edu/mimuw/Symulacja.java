@@ -11,6 +11,12 @@ import java.util.List;
 
 public class Symulacja {
     public Info info;
+    private List<Robotnik> robotnicy;
+    private List<Spekulant> spekulanci;
+
+    public final transient double limit_diamentow;
+    public final transient double okresowosc_nauki;
+
 
     public List<Robotnik> getRobotnicy() {
         return Collections.unmodifiableList(robotnicy);
@@ -20,21 +26,21 @@ public class Symulacja {
         return Collections.unmodifiableList(spekulanci);
     }
 
-    private List<Robotnik> robotnicy;
-    private List<Spekulant> spekulanci;
 
-    public Symulacja(Info info, List<Robotnik> robotnicy, List<Spekulant> spekulanci){
+    public Symulacja(Info info, List<Robotnik> robotnicy, List<Spekulant> spekulanci,
+                      double limit_d, double okresowosc){
         this.info = info;
         this.robotnicy = robotnicy;
         this.spekulanci = spekulanci;
-    }
+        this.limit_diamentow = limit_d;
+        this.okresowosc_nauki = okresowosc;
 
-    @Override
-    public String toString() {
-        return "Symulacja{" +
-                "info=" + info +
-                ", robotnicy=" + robotnicy +
-                ", spekulanci=" + spekulanci +
-                '}';
+
+        for (Robotnik r : robotnicy) {
+            r.setMojaSymulacja(this);
+        }
+        for (Spekulant s : spekulanci) {
+            s.setMojaSymulacja(this);
+        }
     }
 }

@@ -10,7 +10,19 @@ public class Info {
     private int kara_za_brak_ubran;
     private Ceny ceny;
 
-    public Info() {}
+    private transient int dzienSymulacji;
+
+    public Info() {
+        dzienSymulacji = 0;
+    }
+
+    public int getDzien() {
+        return dzienSymulacji;
+    }
+    public void nowyDzien(){
+        dzienSymulacji++;
+    }
+
 
     public String toString() {
         return "Długość: "+dlugosc+"\nGiełda: "+gielda+"\nx: "+x+"\nCeny:\n{\n"+ceny.toString()+"}";

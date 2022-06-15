@@ -1,6 +1,7 @@
 package pl.edu.mimuw.agenci;
 
 import com.squareup.moshi.Json;
+import pl.edu.mimuw.Symulacja;
 import pl.edu.mimuw.agenci.strategie.Adapters.Zmiana;
 import pl.edu.mimuw.agenci.strategie.kupowania.StrategiaKupowania;
 import pl.edu.mimuw.agenci.strategie.produkowania.StrategiaProdukowania;
@@ -11,6 +12,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Robotnik extends Agent {
+
+
+    @Json(name = "poziom")
+    private int aktualny_poziom;
+    private transient Map<KarieraRobotnika, Integer> poziomy;
+    @Json(name = "kariera")
+    KarieraRobotnika aktualna_kariera;
+    private StrategiaKupowania kupowanie;
+    private StrategiaProdukowania produkcja;
+    private StrategiaUczenia uczenie;
+    private StrategiaZmianyKariery zmiana;
+    private Produktywnosc produktywnosc;
+
     public int getAktualny_poziom() {
         return aktualny_poziom;
     }
@@ -31,22 +45,9 @@ public class Robotnik extends Agent {
         return uczenie;
     }
 
-
-
     public Produktywnosc getProduktywnosc() {
         return produktywnosc;
     }
-
-    @Json(name = "poziom")
-    private int aktualny_poziom;
-    private transient Map<KarieraRobotnika, Integer> poziomy;
-    @Json(name = "kariera")
-    KarieraRobotnika aktualna_kariera;
-    private StrategiaKupowania kupowanie;
-    private StrategiaProdukowania produkcja;
-    private StrategiaUczenia uczenie;
-    private StrategiaZmianyKariery zmiana;
-    private Produktywnosc produktywnosc;
 
     public Zmiana getZmiana() {
         return zmiana.getNazwa();
@@ -70,5 +71,7 @@ public class Robotnik extends Agent {
         this.uczenie = uczenie;
         this.zmiana = zmiana;
         this.produktywnosc = produktywnosc;
+        uczenie.setMojRobotnik(this);
     }
+
 }
