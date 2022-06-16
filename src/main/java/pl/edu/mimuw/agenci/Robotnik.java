@@ -1,7 +1,6 @@
 package pl.edu.mimuw.agenci;
 
 import com.squareup.moshi.Json;
-import pl.edu.mimuw.Symulacja;
 import pl.edu.mimuw.agenci.strategie.Adapters.Zmiana;
 import pl.edu.mimuw.agenci.strategie.kupowania.StrategiaKupowania;
 import pl.edu.mimuw.agenci.strategie.produkowania.StrategiaProdukowania;
@@ -25,6 +24,7 @@ public class Robotnik extends Agent {
     private StrategiaZmianyKariery zmiana;
     private Produktywnosc produktywnosc;
 
+//getters
     public int getAktualny_poziom() {
         return aktualny_poziom;
     }
@@ -52,6 +52,7 @@ public class Robotnik extends Agent {
     public Zmiana getZmiana() {
         return zmiana.getNazwa();
     }
+    //endgetters
 
     public Robotnik(int id, Zasoby zasoby, KarieraRobotnika kariera, int poziom,
                     StrategiaKupowania kupowanie, StrategiaProdukowania produkcja,
@@ -71,7 +72,7 @@ public class Robotnik extends Agent {
         this.uczenie = uczenie;
         this.zmiana = zmiana;
         this.produktywnosc = produktywnosc;
-        uczenie.setMojRobotnik(this);
+        uczenie.setMojeDane(this);
     }
 
 }

@@ -22,9 +22,7 @@ import java.nio.file.Paths;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        //parametry strategii
-        double limit_diamentow = Double.parseDouble(args[0]);
-        int okresowosc_nauki = Integer.parseInt(args[1]);
+
 
 
 
@@ -68,7 +66,7 @@ public class Main {
         JsonAdapter<Symulacja> symulacjaJsonAdapter = moshi.adapter(Symulacja.class);
 
         assert symulacjaReader != null;
-        Symulacja symulacja = symulacjaReader.build(limit_diamentow, okresowosc_nauki);
+        Symulacja symulacja = symulacjaReader.build();
 
         //tu mamy wczytane i zaczynamy zabawę
 

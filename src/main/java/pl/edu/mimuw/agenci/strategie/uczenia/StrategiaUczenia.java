@@ -1,17 +1,17 @@
 package pl.edu.mimuw.agenci.strategie.uczenia;
 
+import pl.edu.mimuw.Symulacja;
 import pl.edu.mimuw.agenci.Robotnik;
 
 public abstract class  StrategiaUczenia implements IStrategiaUczenia{
-    private int zapas;
-    private int okres;
-    private transient Robotnik mojRobotnik;
 
-    public void setMojRobotnik(Robotnik mojRobotnik) {
+    protected transient Robotnik mojRobotnik;
+    protected transient Symulacja mojaSymulacja;
+
+    public void setMojeDane(Robotnik mojRobotnik) {
         this.mojRobotnik = mojRobotnik;
+        this.mojaSymulacja = mojRobotnik.getMojaSymulacja();
     }
 
-    public Robotnik getMojRobotnik() {
-        return mojRobotnik;
-    }
+
 }

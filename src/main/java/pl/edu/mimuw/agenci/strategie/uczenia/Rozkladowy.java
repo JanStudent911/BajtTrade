@@ -9,7 +9,7 @@ public class Rozkladowy extends StrategiaUczenia {
     }
     @Override
     public boolean pracujDecyzja() {
-        double x = 1.0/(1.0 + getMojRobotnik().getMojaSymulacja().info.getDzien());
+        double x = 1.0/(1.0 + mojaSymulacja.info.getDzien());
         double r = random.nextDouble();
         return r > x;
     }

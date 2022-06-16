@@ -15,7 +15,7 @@ public class SymulacjaReader {
 
     public SymulacjaReader(){}
 
-    public Symulacja build(double limit_d, int okresowosc_n) throws IOException {
+    public Symulacja build() throws IOException {
         List<Robotnik> r = new ArrayList<>();
         for(RobotnikReader i : robotnicy){
             r.add(i.build());
@@ -26,7 +26,7 @@ public class SymulacjaReader {
             s.add(i.build());
         }
 
-        return new Symulacja(info, r, s, limit_d, okresowosc_n);
+        return new Symulacja(info, r, s);
 
     }
 }
