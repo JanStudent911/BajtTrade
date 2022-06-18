@@ -2,6 +2,7 @@ package pl.edu.mimuw.agenci;
 
 
 import com.squareup.moshi.ToJson;
+import pl.edu.mimuw.produkty.JedzeniePaczka;
 import pl.edu.mimuw.produkty.Narzedzie;
 import pl.edu.mimuw.produkty.ProgramKomp;
 import pl.edu.mimuw.produkty.Ubranie;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class Zasoby {
         protected double diamenty;
-        protected int jedzenie;
+        protected JedzeniePaczka jedzenie;
         protected List<Ubranie> ubrania;
         protected List<Narzedzie> narzedzia;
         protected List<ProgramKomp> programy;
@@ -22,7 +23,7 @@ public class Zasoby {
         return diamenty;
     }
 
-    public int getJedzenie() {
+    public JedzeniePaczka getJedzenie() {
         return jedzenie;
     }
 
@@ -38,7 +39,7 @@ public class Zasoby {
         return Collections.unmodifiableList(programy);
     }
 
-    public Zasoby (double d, int j, List<Ubranie> u,
+    public Zasoby (double d, JedzeniePaczka j, List<Ubranie> u,
                    List<Narzedzie> n, List<ProgramKomp> p){
             diamenty = d;
             jedzenie = j;

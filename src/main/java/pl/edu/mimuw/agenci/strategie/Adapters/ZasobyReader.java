@@ -1,6 +1,7 @@
 package pl.edu.mimuw.agenci.strategie.Adapters;
 
 import pl.edu.mimuw.agenci.Zasoby;
+import pl.edu.mimuw.produkty.JedzeniePaczka;
 import pl.edu.mimuw.produkty.Narzedzie;
 import pl.edu.mimuw.produkty.ProgramKomp;
 import pl.edu.mimuw.produkty.Ubranie;
@@ -23,6 +24,7 @@ public class ZasobyReader {
 
         final int POZIOM_STARTOWY = 1;
 
+        JedzeniePaczka jedzeniePaczka = new JedzeniePaczka(jedzenie);
         List<Ubranie> ubrania_list;
         List<Narzedzie> narzedzia_list;
         List<ProgramKomp> programy_list;
@@ -50,6 +52,6 @@ public class ZasobyReader {
         }
 
 
-        return new Zasoby(diamenty, jedzenie, ubrania_list, narzedzia_list, programy_list);
+        return new Zasoby(diamenty, jedzeniePaczka, ubrania_list, narzedzia_list, programy_list);
     }
 }

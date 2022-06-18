@@ -6,5 +6,4 @@ import pl.edu.mimuw.produkty.Produkty;
 
 public abstract class StrategiaProdukowania extends Strategia implements IStrategiaProdukowania {
     protected Produkty produkty;
-
 }

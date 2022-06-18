@@ -6,7 +6,7 @@ public class ZasobyOut extends ZasobyReader{
 
     public ZasobyOut(Zasoby zasoby){
         diamenty = zasoby.getDiamenty();
-        jedzenie = zasoby.getJedzenie();
+        jedzenie = zasoby.getJedzenie().getIlosc();
         ubrania = zasoby.getUbrania().size();
         narzedzia = zasoby.getNarzedzia().size();
         programy = zasoby.getProgramy().size();
