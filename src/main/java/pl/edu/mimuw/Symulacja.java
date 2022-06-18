@@ -9,11 +9,13 @@ import pl.edu.mimuw.agenci.Spekulant;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class Symulacja {
     public Info info;
     private List<Robotnik> robotnicy;
     private List<Spekulant> spekulanci;
+    public transient Random random;
 
 
     public List<Robotnik> getRobotnicy() {
@@ -29,6 +31,7 @@ public class Symulacja {
         this.info = info;
         this.robotnicy = robotnicy;
         this.spekulanci = spekulanci;
+        random = new Random();
 
 
 

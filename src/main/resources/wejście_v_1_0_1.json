@@ -24,7 +24,7 @@
         },
 	      "produkcja":
         {
-            "typ": "chciwy"
+            "typ": "losowy"
         },
         "uczenie":
         {

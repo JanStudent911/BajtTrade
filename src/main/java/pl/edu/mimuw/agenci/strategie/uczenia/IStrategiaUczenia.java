@@ -4,5 +4,5 @@ import pl.edu.mimuw.agenci.Robotnik;
 
 public interface IStrategiaUczenia {
     public boolean pracujDecyzja();
-    public void setMojeDane(Robotnik mojRobotnik);
+
 }
