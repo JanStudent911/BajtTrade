@@ -16,8 +16,7 @@
       "id": 1,
       "kariera": "programista",
       "kupowanie": {
-        "typ": "gadzeciarz",
-        "liczba_narzedzi": 100
+        "typ": "technofob"
       },
       "poziom": 1,
       "produkcja": {
@@ -51,7 +50,7 @@
   "spekulanci": [
     {
       "id": 12,
-      "kariera": "wypukly",
+      "kariera": "sredni",
       "zasoby": {
         "diamenty": 100.0,
         "jedzenie": 100,

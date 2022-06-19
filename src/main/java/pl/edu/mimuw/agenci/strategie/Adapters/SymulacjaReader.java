@@ -3,7 +3,7 @@ package pl.edu.mimuw.agenci.strategie.Adapters;
 import pl.edu.mimuw.Info;
 import pl.edu.mimuw.Symulacja;
 import pl.edu.mimuw.agenci.Robotnik;
-import pl.edu.mimuw.agenci.Spekulant;
+import pl.edu.mimuw.agenci.spekulant.Spekulant;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

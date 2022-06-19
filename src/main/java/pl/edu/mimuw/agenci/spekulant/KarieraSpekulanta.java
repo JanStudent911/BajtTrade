@@ -1,4 +1,4 @@
-package pl.edu.mimuw.agenci;
+package pl.edu.mimuw.agenci.spekulant;
 
 import com.squareup.moshi.Json;
 

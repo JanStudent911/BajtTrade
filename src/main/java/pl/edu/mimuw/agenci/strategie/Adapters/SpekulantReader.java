@@ -1,6 +1,6 @@
 package pl.edu.mimuw.agenci.strategie.Adapters;
 
-import pl.edu.mimuw.agenci.*;
+import pl.edu.mimuw.agenci.spekulant.*;
 
 import java.io.IOException;
 
@@ -26,6 +26,7 @@ public class SpekulantReader extends AgentReader {
             default:
                 throw new IOException("blad wczytania Spekulanta");
         }
+        s.build();
         return new Spekulant(id, zasobyReader.build(), s);
     }
 

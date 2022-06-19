@@ -1,7 +1,10 @@
-package pl.edu.mimuw.agenci;
+package pl.edu.mimuw.agenci.spekulant;
 
-public class Spekulant extends Agent implements ISpekulant{
-    private StrategiaSpekulanta mojaStrategiaSpekulanta;
+import pl.edu.mimuw.agenci.Agent;
+import pl.edu.mimuw.agenci.Zasoby;
+
+public class Spekulant extends Agent {
+    private transient StrategiaSpekulanta mojaStrategiaSpekulanta;
 
     public Spekulant(int id, Zasoby zasoby, StrategiaSpekulanta strategiaSpekulanta){
         super(id, zasoby);
@@ -9,7 +12,6 @@ public class Spekulant extends Agent implements ISpekulant{
 //        this.kariera = kariera;
     }
 
-    @Override
     public KarieraSpekulanta getKariera() {
         return mojaStrategiaSpekulanta.getKariera();
     }

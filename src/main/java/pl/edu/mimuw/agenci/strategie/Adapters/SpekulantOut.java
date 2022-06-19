@@ -1,6 +1,6 @@
 package pl.edu.mimuw.agenci.strategie.Adapters;
 
-import pl.edu.mimuw.agenci.Spekulant;
+import pl.edu.mimuw.agenci.spekulant.Spekulant;
 
 public class SpekulantOut extends SpekulantReader{
 

@@ -4,7 +4,7 @@ package pl.edu.mimuw;
 
 import org.jetbrains.annotations.NotNull;
 import pl.edu.mimuw.agenci.Robotnik;
-import pl.edu.mimuw.agenci.Spekulant;
+import pl.edu.mimuw.agenci.spekulant.Spekulant;
 
 
 import java.util.Collections;
