@@ -1,11 +1,14 @@
 package pl.edu.mimuw.agenci;
 
 import com.squareup.moshi.Json;
+import pl.edu.mimuw.Oferta;
 import pl.edu.mimuw.agenci.strategie.Adapters.Zmiana;
 import pl.edu.mimuw.agenci.strategie.kupowania.StrategiaKupowania;
 import pl.edu.mimuw.agenci.strategie.produkowania.StrategiaProdukowania;
 import pl.edu.mimuw.agenci.strategie.uczenia.StrategiaUczenia;
 import pl.edu.mimuw.agenci.strategie.zmiany.StrategiaZmianyKariery;
+import pl.edu.mimuw.produkty.Produkt;
+import pl.edu.mimuw.produkty.Produkty;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +26,7 @@ public class Robotnik extends Agent {
     private StrategiaUczenia uczenie;
     private StrategiaZmianyKariery zmiana;
     private Produktywnosc produktywnosc;
+    private transient Oferta nowo_wyprodukowane;
 
 //getters
     public int getAktualny_poziom() {
@@ -72,7 +76,13 @@ public class Robotnik extends Agent {
         this.uczenie = uczenie;
         this.zmiana = zmiana;
         this.produktywnosc = produktywnosc;
+        nowo_wyprodukowane = null;
         uczenie.setMojeDane(this);
+    }
+
+    public void produkuj(){
+
+
     }
 
 }

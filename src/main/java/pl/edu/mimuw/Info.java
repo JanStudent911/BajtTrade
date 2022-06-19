@@ -3,6 +3,10 @@ package pl.edu.mimuw;
 import com.squareup.moshi.Json;
 
 public class Info {
+    public int getDlugosc() {
+        return dlugosc;
+    }
+
     private int dlugosc;
     private String gielda;
     private int x;

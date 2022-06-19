@@ -7,6 +7,8 @@ import pl.edu.mimuw.agenci.Robotnik;
 import pl.edu.mimuw.agenci.spekulant.Spekulant;
 
 
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -42,4 +44,29 @@ public class Symulacja {
             s.setMojaSymulacja(this);
         }
     }
+
+    public void symuluj(){
+
+        while(info.getDzien() < info.getDlugosc()){
+            info.nowyDzien();
+            robotnicyProdukujaUcza();
+            gieldaPrzyjmujeOferty();
+            gieldaRealizujeTransakcje();
+            robotnicyZuzywajaZapasy();
+        }
+
+    }
+
+    public List<Robotnik> robotnicyProdukujaUcza(){
+        List<Robotnik> robotnicyGielda= new ArrayList<Robotnik>();
+        for (Robotnik r :
+                robotnicy) {
+            if (r.getUczenie().pracujDecyzja()) {
+                robotnicyGielda.add(r);
+                r.produ
+            }
+            }
+    }
+
+
 }
