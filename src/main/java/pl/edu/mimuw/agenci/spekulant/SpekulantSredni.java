@@ -16,7 +16,7 @@ public class SpekulantSredni extends StrategiaSpekulanta{
     }
 
     public void build(){
-        arrayHistoria = new double[historia_spekulanta_sredniego];
+        //arrayHistoria = new double[historia_spekulanta_sredniego];
     }
 
     @Override
