@@ -3,6 +3,7 @@ package pl.edu.mimuw;
 
 import org.jetbrains.annotations.NotNull;
 import pl.edu.mimuw.agenci.Robotnik;
+import pl.edu.mimuw.agenci.gielda.Gielda;
 import pl.edu.mimuw.agenci.spekulant.Spekulant;
 
 import java.io.IOException;
@@ -64,8 +65,7 @@ public class Symulacja {
         return robotnicyGielda;
     }
 
-    public void gieldaPrzyjmujeOferty() {
-    //todo
+    public void gieldaPrzyjmujeOferty() {//todo
     }
 
     public void gieldaRealizujeTransakcje(){

@@ -15,5 +15,6 @@ public class Spekulant extends Agent {
     public KarieraSpekulanta getKariera() {
         return mojaStrategiaSpekulanta.getKariera();
     }
+
 }
 

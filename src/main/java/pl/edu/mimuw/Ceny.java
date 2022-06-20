@@ -2,9 +2,7 @@ package pl.edu.mimuw;
 
 
 
-public class Ceny {
-
-
+public class Ceny{
     private double programy;
     private double jedzenie;
     private double ubrania;
