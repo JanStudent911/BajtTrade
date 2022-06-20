@@ -9,6 +9,7 @@ public abstract class Gielda {
     private List<OfertaSpekulanta> ofertyKupnaSpekulantow;
     private List<OfertaSpekulanta> ofertySprzedażySpekulantow;
 
-
-
+    public void setRobotnicyNaGieldzie(List<Robotnik> robotnicyNaGieldzie) {
+        this.robotnicyNaGieldzie = robotnicyNaGieldzie;
+    }
 }

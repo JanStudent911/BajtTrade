@@ -1,13 +1,10 @@
 package pl.edu.mimuw;
 
 
-
 import org.jetbrains.annotations.NotNull;
 import pl.edu.mimuw.agenci.Robotnik;
 import pl.edu.mimuw.agenci.spekulant.Spekulant;
 
-
-import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,26 +13,17 @@ import java.util.Random;
 
 public class Symulacja {
     public Info info;
-    private List<Robotnik> robotnicy;
-    private List<Spekulant> spekulanci;
     public transient Random random;
+    private final List<Robotnik> robotnicy;
+    private transient Gielda gielda;
+    private final List<Spekulant> spekulanci;
 
 
-    public List<Robotnik> getRobotnicy() {
-        return Collections.unmodifiableList(robotnicy);
-    }
-
-    public List<Spekulant> getSpekulanci() {
-        return Collections.unmodifiableList(spekulanci);
-    }
-
-
-    public Symulacja(Info info, @NotNull List<Robotnik> robotnicy, @NotNull List<Spekulant> spekulanci){
+    public Symulacja(Info info, @NotNull List<Robotnik> robotnicy, @NotNull List<Spekulant> spekulanci) {
         this.info = info;
         this.robotnicy = robotnicy;
         this.spekulanci = spekulanci;
         random = new Random();
-
 
 
         for (Robotnik r : robotnicy) {
@@ -46,11 +34,18 @@ public class Symulacja {
         }
     }
 
-    public void symuluj(){
+    public List<Robotnik> getRobotnicy() {
+        return Collections.unmodifiableList(robotnicy);
+    }
 
-        while(info.getDzien() < info.getDlugosc()){
+    public List<Spekulant> getSpekulanci() {
+        return Collections.unmodifiableList(spekulanci);
+    }
+
+    public void symuluj() throws IOException {
+        while (info.getDzien() < info.getDlugosc()) {
             info.nowyDzien();
-            robotnicyProdukujaUcza();
+            gielda.setRobotnicyNaGieldzie(getRobotnicyNaGieldzie());
             gieldaPrzyjmujeOferty();
             gieldaRealizujeTransakcje();
             robotnicyZuzywajaZapasy();
@@ -58,16 +53,27 @@ public class Symulacja {
 
     }
 
-    public List<Robotnik> robotnicyProdukujaUcza() throws IOException {
+    public List<Robotnik> getRobotnicyNaGieldzie() throws IOException {
         List<Robotnik> robotnicyGielda = new ArrayList<Robotnik>();
-        for (Robotnik r :
-                robotnicy) {
+        for (Robotnik r : robotnicy) {
             if (r.getUczenie().pracujDecyzja()) {
                 robotnicyGielda.add(r);
                 r.szykujNaGielde();
             }
-            }
+        }
+        return robotnicyGielda;
+    }
 
+    public void gieldaPrzyjmujeOferty() {
+    //todo
+    }
+
+    public void gieldaRealizujeTransakcje(){
+        //todo
+    }
+
+    public void robotnicyZuzywajaZapasy(){
+        //todo
     }
 
 
