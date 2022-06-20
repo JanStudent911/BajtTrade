@@ -7,9 +7,8 @@ import pl.edu.mimuw.agenci.strategie.kupowania.StrategiaKupowania;
 import pl.edu.mimuw.agenci.strategie.produkowania.StrategiaProdukowania;
 import pl.edu.mimuw.agenci.strategie.uczenia.StrategiaUczenia;
 import pl.edu.mimuw.agenci.strategie.zmiany.StrategiaZmianyKariery;
-import pl.edu.mimuw.produkty.Produkt;
-import pl.edu.mimuw.produkty.Produkty;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,6 +26,7 @@ public class Robotnik extends Agent {
     private StrategiaZmianyKariery zmiana;
     private Produktywnosc produktywnosc;
     private transient Oferta nowo_wyprodukowane;
+    private transient Oferta planZakupy;
 
 //getters
     public int getAktualny_poziom() {
@@ -80,9 +80,10 @@ public class Robotnik extends Agent {
         uczenie.setMojeDane(this);
     }
 
-    public void produkuj(){
-
-
+    public void szykujNaGielde() throws IOException {
+        nowo_wyprodukowane = produkcja.produkujOferte();
+        planZakupy = kupowanie.budujOfertęKupna();
     }
+
 
 }

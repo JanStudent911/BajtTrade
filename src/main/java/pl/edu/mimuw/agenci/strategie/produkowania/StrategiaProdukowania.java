@@ -10,7 +10,7 @@ public abstract class StrategiaProdukowania extends Strategia implements IStrate
     protected Produkty produkty;
 
 
-    public Oferta produkujOfertę() throws IOException {
+    public Oferta produkujOferte() throws IOException {
         Produkty produkt = mojRobotnik.getProdukcja().wybierzProdukt();
         Oferta oferta = new Oferta(mojRobotnik.getProduktywnosc().getIlosc(produkt), produkt);
         return oferta;
