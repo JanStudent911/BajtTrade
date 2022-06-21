@@ -7,22 +7,22 @@ import java.io.IOException;
 
 public class CenyMax extends CenyDane {
     @Override
-    public void aktualizujO(Produkty typ, double cena, int ile) throws IOException {
+    public void aktualizujO(Produkty typ, double cena, int ile) {
         switch(typ){
             case JEDZENIE:
-                jedzenie = java.lang.Math.max(jedzenie, cena);
+                jedzenie = Math.max(jedzenie, cena);
                 break;
             case UBRANIA:
-                ubrania = java.lang.Math.max(jedzenie, cena);
+                ubrania = Math.max(jedzenie, cena);
                 break;
             case NARZEDZIA:
-                narzedzia = java.lang.Math.max(jedzenie, cena);
+                narzedzia = Math.max(jedzenie, cena);
                 break;
             case PROGRAMY:
-                programy = java.lang.Math.max(jedzenie, cena);
+                programy = Math.max(jedzenie, cena);
                 break;
             default:
-                throw new IOException("zły typ produktu");
+                throw new IllegalStateException("Unexpected value: " + typ);
         }
     }
 }

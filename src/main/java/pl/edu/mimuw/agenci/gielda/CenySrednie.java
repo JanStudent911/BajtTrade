@@ -26,7 +26,7 @@ public class CenySrednie extends CenyDane {
     }
 
     @Override
-    public void aktualizujO(Produkty typ, double cena, int ile) throws IOException{
+    public void aktualizujO(Produkty typ, double cena, int ile){
         switch (typ){
             case NARZEDZIA:
                 narzedzia = nowaSrednia(narzedzia, ileNarzedzi, cena, ile);
@@ -45,7 +45,7 @@ public class CenySrednie extends CenyDane {
                 ileUbran += ile;
                 break;
             default:
-                throw new IOException("zły typ produktu");
+                throw new IllegalStateException("Unexpected value: " + typ);
         }
     }
 }

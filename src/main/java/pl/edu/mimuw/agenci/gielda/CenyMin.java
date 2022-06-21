@@ -5,22 +5,22 @@ import java.io.IOException;
 
 public class CenyMin extends CenyDane {
     @Override
-    public void aktualizujO(Produkty typ, double cena, int ile) throws IOException {
+    public void aktualizujO(Produkty typ, double cena, int ile) {
         switch(typ){
             case JEDZENIE:
-                jedzenie = java.lang.Math.min(jedzenie, cena);
+                jedzenie = Math.min(jedzenie, cena);
                 break;
             case UBRANIA:
-                ubrania = java.lang.Math.min(jedzenie, cena);
+                ubrania = Math.min(jedzenie, cena);
                 break;
             case NARZEDZIA:
-                narzedzia = java.lang.Math.min(jedzenie, cena);
+                narzedzia = Math.min(jedzenie, cena);
                 break;
             case PROGRAMY:
-                programy = java.lang.Math.min(jedzenie, cena);
+                programy = Math.min(jedzenie, cena);
                 break;
             default:
-                throw new IOException("zły typ produktu");
+                throw new IllegalStateException("Unexpected value: " + typ);
         }
     }
 }

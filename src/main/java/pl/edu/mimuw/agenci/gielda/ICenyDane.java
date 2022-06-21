@@ -1,7 +1,6 @@
 package pl.edu.mimuw.agenci.gielda;
 
 import pl.edu.mimuw.produkty.Produkty;
-
 import java.io.IOException;
 
 public interface ICenyDane {

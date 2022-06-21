@@ -16,16 +16,16 @@ public class Symulacja {
     public Info info;
     public transient Random random;
     private final List<Robotnik> robotnicy;
-    private transient Gielda gielda;
+    private final transient Gielda gielda;
     private final List<Spekulant> spekulanci;
 
 
-    public Symulacja(Info info, @NotNull List<Robotnik> robotnicy, @NotNull List<Spekulant> spekulanci) {
+    public Symulacja(Info info, @NotNull List<Robotnik> robotnicy, @NotNull List<Spekulant> spekulanci, Gielda gielda) {
         this.info = info;
         this.robotnicy = robotnicy;
+        this.gielda = gielda;
         this.spekulanci = spekulanci;
         random = new Random();
-
 
         for (Robotnik r : robotnicy) {
             r.setMojaSymulacja(this);
@@ -33,6 +33,7 @@ public class Symulacja {
         for (Spekulant s : spekulanci) {
             s.setMojaSymulacja(this);
         }
+        gielda.setMojaSymulacja(this);
     }
 
     public List<Robotnik> getRobotnicy() {
@@ -44,12 +45,14 @@ public class Symulacja {
     }
 
     public void symuluj() throws IOException {
+        //dzien zero
+
         while (info.getDzien() < info.getDlugosc()) {
             info.nowyDzien();
             gielda.setRobotnicyNaGieldzie(getRobotnicyNaGieldzie());
             gieldaPrzyjmujeOferty();
-            gieldaRealizujeTransakcje();
-            robotnicyZuzywajaZapasy();
+            gieldaRealizujeTransakcje();//todo
+            robotnicyZuzywajaZapasy();//todo
         }
 
     }
@@ -65,7 +68,10 @@ public class Symulacja {
         return robotnicyGielda;
     }
 
-    public void gieldaPrzyjmujeOferty() {//todo
+    public void gieldaPrzyjmujeOferty() {
+        for(Spekulant s : spekulanci){
+            gielda.przyjmijOferty(s);
+        }
     }
 
     public void gieldaRealizujeTransakcje(){

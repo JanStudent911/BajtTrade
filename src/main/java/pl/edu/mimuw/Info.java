@@ -8,6 +8,9 @@ public class Info {
     }
 
     private int dlugosc;
+
+
+
     private String gielda;
     private int x;
     @Json(name = "kara_za_brak_ubrań")
@@ -16,13 +19,22 @@ public class Info {
 
     private transient int dzienSymulacji;
 
+
+
     public Info() {
         dzienSymulacji = 0;
     }
 
+    public String getGielda() {
+        return gielda;
+    }
     public int getDzien() {
         return dzienSymulacji;
     }
+    public Ceny getCeny() {
+        return ceny;
+    }
+
     public void nowyDzien(){
         dzienSymulacji++;
     }

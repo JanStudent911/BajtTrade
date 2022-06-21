@@ -1,6 +1,7 @@
 package pl.edu.mimuw.agenci.spekulant;
 
 import pl.edu.mimuw.Oferta;
+import pl.edu.mimuw.OfertaSpekulanta;
 
 import java.util.Arrays;
 
@@ -20,7 +21,12 @@ public class SpekulantSredni extends StrategiaSpekulanta{
     }
 
     @Override
-    public Oferta budujOferteKupna() {
+    public OfertaSpekulanta budujOferteKupna() {
+        return null;
+    }
+
+    @Override
+    public OfertaSpekulanta budujOferteSprzedazy() {
         return null;
     }
 }

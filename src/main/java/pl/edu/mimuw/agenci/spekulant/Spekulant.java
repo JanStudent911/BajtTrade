@@ -1,5 +1,7 @@
 package pl.edu.mimuw.agenci.spekulant;
 
+import pl.edu.mimuw.Oferta;
+import pl.edu.mimuw.OfertaSpekulanta;
 import pl.edu.mimuw.agenci.Agent;
 import pl.edu.mimuw.agenci.Zasoby;
 
@@ -16,5 +18,13 @@ public class Spekulant extends Agent {
         return mojaStrategiaSpekulanta.getKariera();
     }
 
+
+    public OfertaSpekulanta budujOferteKupna(){
+        return mojaStrategiaSpekulanta.budujOferteKupna();
+    }
+
+    public OfertaSpekulanta budujOferteSprzedazy(){
+        return mojaStrategiaSpekulanta.budujOferteSprzedazy();
+    }
 }
 
