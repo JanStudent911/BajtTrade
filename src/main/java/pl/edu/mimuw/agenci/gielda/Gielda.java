@@ -26,7 +26,9 @@ public abstract class Gielda {
     private void ustawCenyDniaZero() {
         historiaCen.add(new HistoriaCenDnia(0));
         for (Produkty p : Produkty.values()) {
-            historiaCen.get(0).notuj(p, mojaSymulacja.info.getCeny().getCena(p), 1);
+            if(p != Produkty.DIAMENTY) {
+                historiaCen.get(0).notuj(p, mojaSymulacja.info.getCeny().getCena(p), 1);
+            }
         }
 
     }

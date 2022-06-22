@@ -69,6 +69,7 @@ public class Main {
         Symulacja symulacja = symulacjaReader.build();
 
         //tu mamy wczytane i zaczynamy zabawę
+        symulacja.symuluj();
 
         //tu kkoniec zabawy i dalej tylko wypisujemy
         SymulacjaOut out = new SymulacjaOut(symulacja);

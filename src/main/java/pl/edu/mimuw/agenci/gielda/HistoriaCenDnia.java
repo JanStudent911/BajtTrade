@@ -9,6 +9,9 @@ public class HistoriaCenDnia {
 
     public HistoriaCenDnia(int dzien) {
         this.dzien = dzien;
+        max = new CenyMax();
+        sr = new CenySrednie();
+        min = new CenyMin();
     }
 
     private CenyMax max;

@@ -46,7 +46,7 @@ public class Symulacja {
 
     public void symuluj() throws IOException {
         gielda.setMojaSymulacja(this);
-        //dzien zero
+//        dzien zero
 
         while (info.getDzien() < info.getDlugosc()) {
             info.nowyDzien();
