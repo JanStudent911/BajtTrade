@@ -21,7 +21,6 @@ public abstract class Gielda {
         ofertyKupnaSpekulantow = new ArrayList<OfertaSpekulanta>();
         ofertySprzedazySpekulantow = new ArrayList<OfertaSpekulanta>();
         historiaCen = new ArrayList<HistoriaCenDnia>();
-        ustawCenyDniaZero();
     }
 
     private void ustawCenyDniaZero() {
@@ -37,6 +36,7 @@ public abstract class Gielda {
     }
     public void setMojaSymulacja(Symulacja mojaSymulacja) {
         this.mojaSymulacja = mojaSymulacja;
+        ustawCenyDniaZero();
     }
 
     public void przyjmijOferty(Spekulant s){

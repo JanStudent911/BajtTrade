@@ -33,7 +33,7 @@ public class Symulacja {
         for (Spekulant s : spekulanci) {
             s.setMojaSymulacja(this);
         }
-        gielda.setMojaSymulacja(this);
+
     }
 
     public List<Robotnik> getRobotnicy() {
@@ -45,6 +45,7 @@ public class Symulacja {
     }
 
     public void symuluj() throws IOException {
+        gielda.setMojaSymulacja(this);
         //dzien zero
 
         while (info.getDzien() < info.getDlugosc()) {
