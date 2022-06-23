@@ -54,6 +54,7 @@
     {
         "id": 12,
         "kariera": "sredni",
+        "historia_spekulanta_sredniego": 3,
         "zasoby":
         {
             "diamenty": 100,

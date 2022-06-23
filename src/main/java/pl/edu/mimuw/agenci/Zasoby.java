@@ -2,10 +2,7 @@ package pl.edu.mimuw.agenci;
 
 
 import com.squareup.moshi.ToJson;
-import pl.edu.mimuw.produkty.JedzeniePaczka;
-import pl.edu.mimuw.produkty.Narzedzie;
-import pl.edu.mimuw.produkty.ProgramKomp;
-import pl.edu.mimuw.produkty.Ubranie;
+import pl.edu.mimuw.produkty.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,6 +36,27 @@ public class Zasoby {
         return Collections.unmodifiableList(programy);
     }
 
+    public int getIleZasobow(Produkty p){
+        int odp;
+        switch (p){
+
+            case JEDZENIE:
+                odp = jedzenie.getIlosc();
+                break;
+            case UBRANIA:
+                odp = ubrania.size();
+                break;
+            case NARZEDZIA:
+                odp = narzedzia.size();
+                break;
+            case PROGRAMY:
+                odp = programy.size();
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + p);
+        }
+        return odp;
+    }
     public Zasoby (double d, JedzeniePaczka j, List<Ubranie> u,
                    List<Narzedzie> n, List<ProgramKomp> p){
             diamenty = d;

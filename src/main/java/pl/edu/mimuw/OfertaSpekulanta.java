@@ -1,5 +1,6 @@
 package pl.edu.mimuw;
 
+import pl.edu.mimuw.agenci.Agent;
 import pl.edu.mimuw.produkty.Produkty;
 
 public class OfertaSpekulanta extends Oferta{

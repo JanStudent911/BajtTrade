@@ -48,6 +48,7 @@
   ],
   "spekulanci": [
     {
+      "historia_spekulanta_sredniego": 0,
       "id": 12,
       "kariera": "sredni",
       "zasoby": {

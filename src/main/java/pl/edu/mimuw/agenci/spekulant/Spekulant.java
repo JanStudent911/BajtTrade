@@ -5,6 +5,8 @@ import pl.edu.mimuw.OfertaSpekulanta;
 import pl.edu.mimuw.agenci.Agent;
 import pl.edu.mimuw.agenci.Zasoby;
 
+import java.util.List;
+
 public class Spekulant extends Agent {
     private transient StrategiaSpekulanta mojaStrategiaSpekulanta;
 
@@ -20,11 +22,11 @@ public class Spekulant extends Agent {
     }
 
 
-    public OfertaSpekulanta budujOferteKupna(){
+    public List<OfertaSpekulanta> budujOferteKupna(){
         return mojaStrategiaSpekulanta.budujOferteKupna();
     }
 
-    public OfertaSpekulanta budujOferteSprzedazy(){
+    public List<OfertaSpekulanta> budujOferteSprzedazy(){
         return mojaStrategiaSpekulanta.budujOferteSprzedazy();
     }
 }

@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Math.max;
+
 public abstract class Gielda {
     private List<Robotnik> robotnicyNaGieldzie;
     private List<OfertaSpekulanta> ofertyKupnaSpekulantow;
@@ -43,11 +45,18 @@ public abstract class Gielda {
 
     }
 
-
+    public double policzSredniaZIleDni(Produkty p, int ileDni){
+        int dni = mojaSymulacja.info.getDzien() - 1;//tyle dni historii mamy
+        double srednia = 0;
+        for(int i = 0; i < ileDni; i++){
+            srednia += getCenaHistoryczna(TypStat.SR_ARYT,p, max(dni-i, 0));
+        }
+        return srednia/ileDni;
+    }
 
     public void przyjmijOferty(Spekulant s){
-        ofertyKupnaSpekulantow.add(s.budujOferteKupna());
-        ofertySprzedazySpekulantow.add(s.budujOferteSprzedazy());
+        ofertyKupnaSpekulantow.addAll(s.budujOferteKupna());
+        ofertySprzedazySpekulantow.addAll(s.budujOferteSprzedazy());
     }
 
     public double getCenaHistoryczna(TypStat typ, Produkty p, int dzien){
