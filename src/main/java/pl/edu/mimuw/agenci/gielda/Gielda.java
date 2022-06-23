@@ -23,6 +23,16 @@ public abstract class Gielda {
         historiaCen = new ArrayList<HistoriaCenDnia>();
     }
 
+
+    public void setRobotnicyNaGieldzie(List<Robotnik> robotnicyNaGieldzie) {
+        this.robotnicyNaGieldzie = robotnicyNaGieldzie;
+    }
+
+    public void setMojaSymulacja(Symulacja mojaSymulacja) {
+        this.mojaSymulacja = mojaSymulacja;
+        ustawCenyDniaZero();
+    }
+
     private void ustawCenyDniaZero() {
         historiaCen.add(new HistoriaCenDnia(0));
         for (Produkty p : Produkty.values()) {
@@ -33,18 +43,31 @@ public abstract class Gielda {
 
     }
 
-    public void setRobotnicyNaGieldzie(List<Robotnik> robotnicyNaGieldzie) {
-        this.robotnicyNaGieldzie = robotnicyNaGieldzie;
-    }
-    public void setMojaSymulacja(Symulacja mojaSymulacja) {
-        this.mojaSymulacja = mojaSymulacja;
-        ustawCenyDniaZero();
-    }
+
 
     public void przyjmijOferty(Spekulant s){
         ofertyKupnaSpekulantow.add(s.budujOferteKupna());
         ofertySprzedazySpekulantow.add(s.budujOferteSprzedazy());
     }
 
+    public double getCenaHistoryczna(TypStat typ, Produkty p, int dzien){
+        double odp;
+        
+        switch (typ){
+
+            case MAX:
+                odp = historiaCen.get(dzien).getMax().getCenaProduktu(p);
+                break;
+            case MIN:
+                odp = historiaCen.get(dzien).getMin().getCenaProduktu(p);
+                break;
+            case SR_ARYT:
+                odp = historiaCen.get(dzien).getSr().getCenaProduktu(p);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + typ);
+        }
+        return odp;
+    }
 
 }

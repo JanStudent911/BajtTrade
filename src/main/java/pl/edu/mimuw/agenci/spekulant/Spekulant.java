@@ -11,6 +11,7 @@ public class Spekulant extends Agent {
     public Spekulant(int id, Zasoby zasoby, StrategiaSpekulanta strategiaSpekulanta){
         super(id, zasoby);
         this.mojaStrategiaSpekulanta = strategiaSpekulanta;
+        strategiaSpekulanta.mojSpekulant = this;
 //        this.kariera = kariera;
     }
 

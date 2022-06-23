@@ -10,12 +10,13 @@ public class SpekulantReader extends AgentReader {
     }
 
     protected KarieraSpekulanta kariera;
+    private int historia_spekulanta_sredniego;
 
     public Spekulant build() throws IOException {
         StrategiaSpekulanta s;
         switch (kariera){
             case SREDNI:
-                s = new SpekulantSredni();
+                s = new SpekulantSredni(historia_spekulanta_sredniego);
                 break;
             case WYPUKLY:
                 s = new SpekulantWypukly();

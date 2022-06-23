@@ -44,6 +44,10 @@ public class Symulacja {
         return Collections.unmodifiableList(spekulanci);
     }
 
+    public Gielda getGielda() {
+        return gielda;
+    }
+
     public void symuluj() throws IOException {
         gielda.setMojaSymulacja(this);
 //        dzien zero

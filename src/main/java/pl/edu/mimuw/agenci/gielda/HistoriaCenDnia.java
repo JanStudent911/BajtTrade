@@ -18,6 +18,18 @@ public class HistoriaCenDnia {
     private CenySrednie sr;
     private CenyMin min;
 
+    public CenyMax getMax() {
+        return max;
+    }
+
+    public CenySrednie getSr() {
+        return sr;
+    }
+
+    public CenyMin getMin() {
+        return min;
+    }
+
     public void notuj(Produkty produkt, double cena, int ile) {
         max.aktualizujO(produkt, cena, ile);
         sr.aktualizujO(produkt, cena, ile);
