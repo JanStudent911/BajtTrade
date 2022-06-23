@@ -12,7 +12,7 @@ public class Info {
 
 
     private String gielda;
-    private int x;
+    private transient int x;
     @Json(name = "kara_za_brak_ubrań")
     private int kara_za_brak_ubran;
     private Ceny ceny;
@@ -39,8 +39,4 @@ public class Info {
         dzienSymulacji++;
     }
 
-
-    public String toString() {
-        return "Długość: "+dlugosc+"\nGiełda: "+gielda+"\nx: "+x+"\nCeny:\n{\n"+ceny.toString()+"}";
-    }
 }

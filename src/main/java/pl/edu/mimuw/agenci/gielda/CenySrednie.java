@@ -5,6 +5,8 @@ import pl.edu.mimuw.produkty.Produkty;
 
 import java.io.IOException;
 
+import static java.lang.Math.max;
+
 public class CenySrednie extends CenyDane {
     private int ileUbran;
     private int ileNarzedzi;
@@ -13,7 +15,7 @@ public class CenySrednie extends CenyDane {
 
     public CenySrednie() {
         super();
-        ileJedzenia = 0;
+        ileJedzenia = 0;//todo chyba delikatny scam - wliczamy ceny 0 do sredniej?
         ileNarzedzi = 0;
         ileProgramow = 0;
         ileUbran = 0;
@@ -21,7 +23,7 @@ public class CenySrednie extends CenyDane {
 
     public double nowaSrednia(double stara_cena, int stara_ilosc, double cena, int ile){
         double srednia = stara_ilosc * stara_cena + ile * cena /
-                stara_ilosc + ile;
+                max(stara_ilosc + ile, 1);//dla startowej ceny ten max
         return srednia;
     }
 

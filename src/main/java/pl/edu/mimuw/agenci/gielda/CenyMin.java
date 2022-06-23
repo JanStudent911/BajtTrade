@@ -4,6 +4,15 @@ import pl.edu.mimuw.produkty.Produkty;
 import java.io.IOException;
 
 public class CenyMin extends CenyDane {
+    public CenyMin() {
+        super();
+        jedzenie = Double.MAX_VALUE;
+        ubrania = Double.MAX_VALUE;
+        narzedzia = Double.MAX_VALUE;
+        programy = Double.MAX_VALUE;
+
+    }
+
     @Override
     public void aktualizujO(Produkty typ, double cena, int ile) {
         switch(typ){
