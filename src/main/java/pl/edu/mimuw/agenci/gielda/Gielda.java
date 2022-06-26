@@ -61,7 +61,7 @@ public abstract class Gielda {
 
     public double getCenaHistoryczna(TypStat typ, Produkty p, int dzien){
         double odp;
-        
+        assert(historiaCen != null);
         switch (typ){
 
             case MAX:

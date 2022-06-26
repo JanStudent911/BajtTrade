@@ -37,14 +37,14 @@ public class SpekulantSredni extends StrategiaSpekulanta{
         List<OfertaSpekulanta> oferty = new ArrayList<>();
         for (Produkty p : Produkty.values()) {
             if (p != Produkty.DIAMENTY){
-//                if (mojSpekulant.getZasoby().getIleZasobow(p) == 0){
-//                    oferty.add(new OfertaSpekulanta(ILE_KUPUE_SPEKULANT, p,mojSpekulant.getMojaSymulacja().getGielda().policzSredniaZIleDni(p, historia_spekulanta_sredniego)
-//                            *(100-krytMarzaKupna)/100));
-//                }else {
-//                    oferty.add(new OfertaSpekulanta(ILE_KUPUE_SPEKULANT, p,
-//                            mojSpekulant.getMojaSymulacja().getGielda().policzSredniaZIleDni(p, historia_spekulanta_sredniego)
-//                                    * (100 - marzaKupna) / 100));
-//                }
+                if (mojSpekulant.getZasoby().getIleZasobow(p) == 0){
+                    oferty.add(new OfertaSpekulanta(ILE_KUPUE_SPEKULANT, p,mojSpekulant.getMojaSymulacja().getGielda().policzSredniaZIleDni(p, historia_spekulanta_sredniego)
+                            *(100-krytMarzaKupna)/100));
+                }else {
+                    oferty.add(new OfertaSpekulanta(ILE_KUPUE_SPEKULANT, p,
+                            mojSpekulant.getMojaSymulacja().getGielda().policzSredniaZIleDni(p, historia_spekulanta_sredniego)
+                                    * (100 - marzaKupna) / 100));
+                }
             }
         }
         return oferty;
@@ -57,7 +57,9 @@ public class SpekulantSredni extends StrategiaSpekulanta{
             if (p != Produkty.DIAMENTY) {
                 int i = mojSpekulant.getZasoby().getIleZasobow(p);
                 if (i > 0){
-                    oferty.add(new OfertaSpekulanta(i, p, mojSpekulant.getMojaSymulacja().getGielda().policzSredniaZIleDni(p, historia_spekulanta_sredniego)
+                    oferty.add(new OfertaSpekulanta(i, p,
+                            mojSpekulant.getMojaSymulacja().getGielda()
+                                    .policzSredniaZIleDni(p, historia_spekulanta_sredniego)
                             * (100 + marzaSprzedazy) / 100));
                 }
             }
