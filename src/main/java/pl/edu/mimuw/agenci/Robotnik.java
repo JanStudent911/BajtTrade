@@ -2,6 +2,7 @@ package pl.edu.mimuw.agenci;
 
 import com.squareup.moshi.Json;
 import pl.edu.mimuw.Oferta;
+import pl.edu.mimuw.Symulacja;
 import pl.edu.mimuw.agenci.strategie.Adapters.Zmiana;
 import pl.edu.mimuw.agenci.strategie.kupowania.StrategiaKupowania;
 import pl.edu.mimuw.agenci.strategie.produkowania.StrategiaProdukowania;
@@ -74,12 +75,23 @@ public class Robotnik extends Agent {
 
         this.kupowanie = kupowanie;
         this.produkcja = produkcja;
+        produkcja.setMojeDane(this);
         this.uczenie = uczenie;
+
         this.zmiana = zmiana;
         this.produktywnosc = produktywnosc;
         nowo_wyprodukowane = null;
         bylemNaGieldzie = false;
+    }
+
+    @Override
+    public void setMojaSymulacja(Symulacja mojaSymulacja){
+        this.mojaSymulacja = mojaSymulacja;
         uczenie.setMojeDane(this);
+        produkcja.setMojeDane(this);
+
+
+
     }
 
     public void szykujNaGielde() throws IOException {
@@ -93,6 +105,10 @@ public class Robotnik extends Agent {
 
     public void setBylemNaGieldzie(boolean bylem){
         bylemNaGieldzie = bylem;
+    }
+
+    public void sprzedawaj(){
+
     }
 
 

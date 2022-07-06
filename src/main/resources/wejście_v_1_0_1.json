@@ -28,7 +28,7 @@
         },
         "uczenie":
         {
-            "typ": "student",
+            "typ": "pracus",
             "zapas": 2,
             "okres": 5
         },

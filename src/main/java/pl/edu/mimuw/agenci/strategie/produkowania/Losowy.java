@@ -10,7 +10,8 @@ public class Losowy extends StrategiaProdukowania{
     private List<Produkty> produktyList;
 
     public Losowy() {
-        produktyList = Collections.unmodifiableList(Arrays.asList(produkty));
+        super();
+        produktyList = Collections.unmodifiableList(Arrays.asList(produkty.values()));
     }
 
     @Override

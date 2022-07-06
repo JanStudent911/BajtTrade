@@ -23,6 +23,9 @@ public class GieldaSocjalistyczna extends Gielda{
                     wybrany = r;
             }
         }
+        if(wybrany != null) {
+            wybrany.setBylemNaGieldzie(true);
+        }
         return wybrany;
     }
 }

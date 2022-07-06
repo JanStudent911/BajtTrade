@@ -66,8 +66,8 @@ public class Symulacja {
         List<Robotnik> robotnicyGielda = new ArrayList<Robotnik>();
         for (Robotnik r : robotnicy) {
             if (r.getUczenie().pracujDecyzja()) {
-                robotnicyGielda.add(r);
                 r.szykujNaGielde();
+                robotnicyGielda.add(r);
             }
         }
         return robotnicyGielda;

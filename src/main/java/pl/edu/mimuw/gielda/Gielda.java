@@ -83,6 +83,7 @@ public abstract class Gielda implements IGielda{
 
     public void realizujTransakcje(){
         Robotnik aktywnyR = wskazNastRobotnika();
+
     }
 }
 

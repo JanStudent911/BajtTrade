@@ -21,7 +21,11 @@
       "produkcja": {
         "typ": "losowy",
         "produktyList": [
-          null
+          "DIAMENTY",
+          "JEDZENIE",
+          "UBRANIA",
+          "NARZEDZIA",
+          "PROGRAMY"
         ]
       },
       "produktywnosc": {
@@ -32,9 +36,7 @@
         "ubrania": 100
       },
       "uczenie": {
-        "typ": "student",
-        "okres": 5,
-        "zapas": 2
+        "typ": "pracus"
       },
       "zasoby": {
         "diamenty": 100.0,
