@@ -27,6 +27,7 @@ public class Robotnik extends Agent {
     private Produktywnosc produktywnosc;
     private transient Oferta nowo_wyprodukowane;
     private transient Oferta planZakupy;
+    private transient boolean bylemNaGieldzie;
 
 //getters
     public int getAktualny_poziom() {
@@ -77,12 +78,21 @@ public class Robotnik extends Agent {
         this.zmiana = zmiana;
         this.produktywnosc = produktywnosc;
         nowo_wyprodukowane = null;
+        bylemNaGieldzie = false;
         uczenie.setMojeDane(this);
     }
 
     public void szykujNaGielde() throws IOException {
         nowo_wyprodukowane = produkcja.produkujOferte();
         planZakupy = kupowanie.budujOfertęKupna();
+    }
+
+    public boolean getBylemNaGieldzie(){
+        return bylemNaGieldzie;
+    }
+
+    public void setBylemNaGieldzie(boolean bylem){
+        bylemNaGieldzie = bylem;
     }
 
 

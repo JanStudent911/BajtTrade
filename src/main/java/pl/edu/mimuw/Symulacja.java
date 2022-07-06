@@ -3,7 +3,7 @@ package pl.edu.mimuw;
 
 import org.jetbrains.annotations.NotNull;
 import pl.edu.mimuw.agenci.Robotnik;
-import pl.edu.mimuw.agenci.gielda.Gielda;
+import pl.edu.mimuw.gielda.Gielda;
 import pl.edu.mimuw.agenci.spekulant.Spekulant;
 
 import java.io.IOException;
@@ -20,7 +20,8 @@ public class Symulacja {
     private final List<Spekulant> spekulanci;
 
 
-    public Symulacja(Info info, @NotNull List<Robotnik> robotnicy, @NotNull List<Spekulant> spekulanci, Gielda gielda) {
+    public Symulacja(Info info, @NotNull List<Robotnik> robotnicy, @NotNull List<Spekulant> spekulanci,
+                     Gielda gielda) {
         this.info = info;
         this.robotnicy = robotnicy;
         this.gielda = gielda;
@@ -33,7 +34,6 @@ public class Symulacja {
         for (Spekulant s : spekulanci) {
             s.setMojaSymulacja(this);
         }
-
     }
 
     public List<Robotnik> getRobotnicy() {
@@ -73,17 +73,17 @@ public class Symulacja {
         return robotnicyGielda;
     }
 
-    public void gieldaPrzyjmujeOferty() {
+    private void gieldaPrzyjmujeOferty() {
         for(Spekulant s : spekulanci){
             gielda.przyjmijOferty(s);
         }
     }
 
-    public void gieldaRealizujeTransakcje(){
-        //todo
+    private void gieldaRealizujeTransakcje() {//todo
+
     }
 
-    public void robotnicyZuzywajaZapasy(){
+    private void robotnicyZuzywajaZapasy(){
         //todo
     }
 

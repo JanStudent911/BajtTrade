@@ -1,4 +1,4 @@
-package pl.edu.mimuw.agenci.gielda;
+package pl.edu.mimuw.gielda;
 
 import pl.edu.mimuw.OfertaSpekulanta;
 import pl.edu.mimuw.Symulacja;
@@ -6,14 +6,13 @@ import pl.edu.mimuw.agenci.Robotnik;
 import pl.edu.mimuw.agenci.spekulant.Spekulant;
 import pl.edu.mimuw.produkty.Produkty;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Math.max;
 
-public abstract class Gielda {
-    private List<Robotnik> robotnicyNaGieldzie;
+public abstract class Gielda implements IGielda{
+    protected List<Robotnik> robotnicyNaGieldzie;
     private List<OfertaSpekulanta> ofertyKupnaSpekulantow;
     private List<OfertaSpekulanta> ofertySprzedazySpekulantow;
     private List<HistoriaCenDnia> historiaCen;
@@ -54,11 +53,6 @@ public abstract class Gielda {
         return srednia/ileDni;
     }
 
-    public void przyjmijOferty(Spekulant s){
-        ofertyKupnaSpekulantow.addAll(s.budujOferteKupna());
-        ofertySprzedazySpekulantow.addAll(s.budujOferteSprzedazy());
-    }
-
     public double getCenaHistoryczna(TypStat typ, Produkty p, int dzien){
         double odp;
         assert(historiaCen != null);
@@ -79,4 +73,16 @@ public abstract class Gielda {
         return odp;
     }
 
+
+    public void przyjmijOferty(Spekulant s){
+        ofertyKupnaSpekulantow.addAll(s.budujOferteKupna());
+        ofertySprzedazySpekulantow.addAll(s.budujOferteSprzedazy());
+    }
+
+
+
+    public void realizujTransakcje(){
+        Robotnik aktywnyR = wskazNastRobotnika();
+    }
 }
+

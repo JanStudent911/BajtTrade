@@ -1,9 +1,6 @@
-package pl.edu.mimuw.agenci.gielda;
+package pl.edu.mimuw.gielda;
 
-import pl.edu.mimuw.Ceny;
 import pl.edu.mimuw.produkty.Produkty;
-
-import java.io.IOException;
 
 public class CenyMax extends CenyDane {
 

@@ -1,4 +1,4 @@
-package pl.edu.mimuw.agenci.gielda;
+package pl.edu.mimuw.gielda;
 
 public enum TypStat {
     MAX,

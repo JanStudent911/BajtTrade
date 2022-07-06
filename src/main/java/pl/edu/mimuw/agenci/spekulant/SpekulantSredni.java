@@ -1,12 +1,9 @@
 package pl.edu.mimuw.agenci.spekulant;
 
-import pl.edu.mimuw.Oferta;
 import pl.edu.mimuw.OfertaSpekulanta;
-import pl.edu.mimuw.agenci.gielda.TypStat;
 import pl.edu.mimuw.produkty.Produkty;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static java.lang.Math.max;
@@ -38,11 +35,13 @@ public class SpekulantSredni extends StrategiaSpekulanta{
         for (Produkty p : Produkty.values()) {
             if (p != Produkty.DIAMENTY){
                 if (mojSpekulant.getZasoby().getIleZasobow(p) == 0){
-                    oferty.add(new OfertaSpekulanta(ILE_KUPUE_SPEKULANT, p,mojSpekulant.getMojaSymulacja().getGielda().policzSredniaZIleDni(p, historia_spekulanta_sredniego)
+                    oferty.add(new OfertaSpekulanta(ILE_KUPUE_SPEKULANT, p,mojSpekulant.getMojaSymulacja().
+                            getGielda().policzSredniaZIleDni(p, historia_spekulanta_sredniego)
                             *(100-krytMarzaKupna)/100));
                 }else {
                     oferty.add(new OfertaSpekulanta(ILE_KUPUE_SPEKULANT, p,
-                            mojSpekulant.getMojaSymulacja().getGielda().policzSredniaZIleDni(p, historia_spekulanta_sredniego)
+                            mojSpekulant.getMojaSymulacja().getGielda().policzSredniaZIleDni(p,
+                                    historia_spekulanta_sredniego)
                                     * (100 - marzaKupna) / 100));
                 }
             }
