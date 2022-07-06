@@ -1,6 +1,7 @@
 package pl.edu.mimuw.agenci;
 
 
+import pl.edu.mimuw.Oferta;
 import pl.edu.mimuw.Symulacja;
 
 public abstract class Agent {
@@ -28,5 +29,9 @@ public abstract class Agent {
     public Agent(int id, Zasoby zasoby){
         this.id = id;
         this.zasoby = zasoby;
+    }
+
+    protected void wezPrzedmiotyZOferty(Oferta oferta){
+
     }
 }

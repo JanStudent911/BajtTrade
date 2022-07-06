@@ -1,5 +1,6 @@
 package pl.edu.mimuw.gielda;
 
+import pl.edu.mimuw.Oferta;
 import pl.edu.mimuw.OfertaSpekulanta;
 import pl.edu.mimuw.Symulacja;
 import pl.edu.mimuw.agenci.Robotnik;
@@ -7,6 +8,8 @@ import pl.edu.mimuw.agenci.spekulant.Spekulant;
 import pl.edu.mimuw.produkty.Produkty;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 import static java.lang.Math.max;
@@ -79,10 +82,61 @@ public abstract class Gielda implements IGielda{
         ofertySprzedazySpekulantow.addAll(s.budujOferteSprzedazy());
     }
 
+    private void porzadkujOferty(){
+        //todo - osobne listy dla kategorii przedmiotów?
+        ofertyKupnaSpekulantow.sort(Comparator.comparing(OfertaSpekulanta::getRodzaj_produktu).thenComparing(OfertaSpekulanta::getCena));
+        ofertySprzedazySpekulantow.sort(Comparator.comparing(OfertaSpekulanta::getRodzaj_produktu).thenComparing(OfertaSpekulanta::getCena).reversed());
+    }
+
+    private void robotnikSprzedaje(Robotnik aktywnyR){
+        Oferta ofertaSpRobotnika = aktywnyR.getNowo_wyprodukowane();
+        double suma = 0;
+        Iterator<OfertaSpekulanta> iter = ofertyKupnaSpekulantow.iterator();
+
+        while(ofertaSpRobotnika.getIlosc() > 0 && iter.hasNext()){
+
+
+            OfertaSpekulanta ofertaKupSpekulanta = iter.next();//już posortowane po atrakcyjnosci
+            while(ofertaKupSpekulanta.getRodzaj_produktu() != ofertaSpRobotnika.getRodzaj_produktu()){
+                if(iter.hasNext()){
+                    ofertaKupSpekulanta = iter.next();
+                }
+            }//teraz jesteśmy na pierwszym (atrakcyjnym) elemencie danego produktu;
+
+            if(ofertaSpRobotnika.getIlosc() >= ofertaKupSpekulanta.getIlosc()){
+                //liczenie kosztu
+                suma = ofertaKupSpekulanta.getIlosc() * ofertaKupSpekulanta.getCena();
+                //obciazanie spekulanta kosztem
+                ofertaKupSpekulanta.getMojAgent().getZasoby().zaplacDiamenty(suma);
+                //dodawanie robotnikowi diamentów
+                aktywnyR.getZasoby().dostanDiamenty(suma);
+                suma = 0;
+                //spekulant dostaje przedmioty
+               // ofertaKupSpekulanta.getMojAgent().wezPrzedmiotyZOferty()//todo
+                //aktualizowanie oferty robotnika
+                ofertaSpRobotnika.zabierzSztuki(ofertaKupSpekulanta.getIlosc());
+                historiaCen.get(mojaSymulacja.info.getDzien()).notuj(ofertaSpRobotnika.getRodzaj_produktu(),
+                        ofertaKupSpekulanta.getCena(), ofertaKupSpekulanta.getIlosc());
+                //kasowanie oferty spekulanta
+                iter.remove();
+            }else{
+                //liczenie kosztu
+                suma = ofertaSpRobotnika.getIlosc() * ofertaKupSpekulanta.getCena();
+
+
+            }
+
+        }
+    }
+
+
 
 
     public void realizujTransakcje(){
+        porzadkujOferty();//najbardziej atrakcyjne oferty na poczatku
+
         Robotnik aktywnyR = wskazNastRobotnika();
+        robotnikSprzedaje(aktywnyR);
 
     }
 }

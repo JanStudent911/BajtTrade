@@ -94,6 +94,14 @@ public class Robotnik extends Agent {
 
     }
 
+    public Oferta getNowo_wyprodukowane() {
+        return nowo_wyprodukowane;
+    }
+
+    public Oferta getPlanZakupy() {
+        return planZakupy;
+    }
+
     public void szykujNaGielde() throws IOException {
         nowo_wyprodukowane = produkcja.produkujOferte();
         planZakupy = kupowanie.budujOfertęKupna();

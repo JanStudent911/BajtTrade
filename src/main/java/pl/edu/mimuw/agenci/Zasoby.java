@@ -66,4 +66,14 @@ public class Zasoby {
             programy = p;
         }
 
+
+//zakladam, ze spekulant moze miec debet
+    public void zaplacDiamenty(double x) {
+        diamenty -= x;
+    }
+
+    public void dostanDiamenty(double x){
+        diamenty += x;
+    }
+
 }

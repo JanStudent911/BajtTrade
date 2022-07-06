@@ -1,5 +1,7 @@
 package pl.edu.mimuw.agenci.strategie.kupowania;
 
-public abstract class StrategiaKupowania implements IStrategiaKupowania {
+import pl.edu.mimuw.Strategia;
+
+public abstract class StrategiaKupowania extends Strategia implements IStrategiaKupowania {
 
 }

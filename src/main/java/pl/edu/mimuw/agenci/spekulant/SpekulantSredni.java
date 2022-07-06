@@ -37,12 +37,12 @@ public class SpekulantSredni extends StrategiaSpekulanta{
                 if (mojSpekulant.getZasoby().getIleZasobow(p) == 0){
                     oferty.add(new OfertaSpekulanta(ILE_KUPUE_SPEKULANT, p,mojSpekulant.getMojaSymulacja().
                             getGielda().policzSredniaZIleDni(p, historia_spekulanta_sredniego)
-                            *(100-krytMarzaKupna)/100));
+                            *(100-krytMarzaKupna)/100, mojSpekulant));
                 }else {
                     oferty.add(new OfertaSpekulanta(ILE_KUPUE_SPEKULANT, p,
                             mojSpekulant.getMojaSymulacja().getGielda().policzSredniaZIleDni(p,
                                     historia_spekulanta_sredniego)
-                                    * (100 - marzaKupna) / 100));
+                                    * (100 - marzaKupna) / 100, mojSpekulant));
                 }
             }
         }
@@ -59,7 +59,7 @@ public class SpekulantSredni extends StrategiaSpekulanta{
                     oferty.add(new OfertaSpekulanta(i, p,
                             mojSpekulant.getMojaSymulacja().getGielda()
                                     .policzSredniaZIleDni(p, historia_spekulanta_sredniego)
-                            * (100 + marzaSprzedazy) / 100));
+                            * (100 + marzaSprzedazy) / 100, mojSpekulant));
                 }
             }
         }

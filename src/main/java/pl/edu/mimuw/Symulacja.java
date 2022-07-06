@@ -79,7 +79,8 @@ public class Symulacja {
         }
     }
 
-    private void gieldaRealizujeTransakcje() {//todo
+    private void gieldaRealizujeTransakcje() {
+        gielda.realizujTransakcje();//todo
 
     }
 

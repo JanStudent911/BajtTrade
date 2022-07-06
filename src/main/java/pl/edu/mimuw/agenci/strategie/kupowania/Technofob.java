@@ -9,6 +9,6 @@ public class Technofob extends StrategiaKupowania{
 
     @Override
     public Oferta budujOfertęKupna() {
-        return new Oferta(ILOSC_JEDZENIA_TECHNOFOBA, Produkty.JEDZENIE);
+        return new Oferta(ILOSC_JEDZENIA_TECHNOFOBA, Produkty.JEDZENIE, mojRobotnik);
     }
 }
