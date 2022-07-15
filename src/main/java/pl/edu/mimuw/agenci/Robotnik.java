@@ -8,8 +8,10 @@ import pl.edu.mimuw.agenci.strategie.kupowania.StrategiaKupowania;
 import pl.edu.mimuw.agenci.strategie.produkowania.StrategiaProdukowania;
 import pl.edu.mimuw.agenci.strategie.uczenia.StrategiaUczenia;
 import pl.edu.mimuw.agenci.strategie.zmiany.StrategiaZmianyKariery;
+import pl.edu.mimuw.produkty.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,6 +60,14 @@ public class Robotnik extends Agent {
     public Zmiana getZmiana() {
         return zmiana.getNazwa();
     }
+
+    public Oferta getNowo_wyprodukowane() {
+        return nowo_wyprodukowane;
+    }
+
+    public Oferta getPlanZakupy() {
+        return planZakupy;
+    }
     //endgetters
 
     public Robotnik(int id, Zasoby zasoby, KarieraRobotnika kariera, int poziom,
@@ -94,17 +104,45 @@ public class Robotnik extends Agent {
 
     }
 
-    public Oferta getNowo_wyprodukowane() {
-        return nowo_wyprodukowane;
-    }
 
-    public Oferta getPlanZakupy() {
-        return planZakupy;
-    }
+
+
 
     public void szykujNaGielde() throws IOException {
         nowo_wyprodukowane = produkcja.produkujOferte();
+        produkuj();
         planZakupy = kupowanie.budujOfertęKupna();
+    }
+
+    private void produkuj(){
+        ArrayList<Produkt> obiekty = new ArrayList();
+        switch (nowo_wyprodukowane.getRodzaj_produktu()){
+            case DIAMENTY:
+                break;
+            case JEDZENIE:
+                obiekty.add(new JedzeniePaczka(nowo_wyprodukowane.getIlosc()));
+                break;
+            case NARZEDZIA:
+                for(int i = 0; i < getNowo_wyprodukowane().getIlosc(); i++){
+                    obiekty.add(new Narzedzie(1));
+                }
+                break;
+            case PROGRAMY:
+                for(int i = 0; i < getNowo_wyprodukowane().getIlosc(); i++){
+                    obiekty.add(new ProgramKomp(1));
+                }
+                break;
+            case UBRANIA:
+                for(int i = 0; i < getNowo_wyprodukowane().getIlosc(); i++){
+                    obiekty.add(new Ubranie(1));
+                }
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + nowo_wyprodukowane.getRodzaj_produktu());
+        }
+        if(!obiekty.isEmpty()){
+            nowo_wyprodukowane.dodajObiekty(obiekty);
+        }
     }
 
     public boolean getBylemNaGieldzie(){

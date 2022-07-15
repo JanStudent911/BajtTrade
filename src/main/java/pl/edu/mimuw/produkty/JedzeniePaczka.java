@@ -10,4 +10,12 @@ public class JedzeniePaczka extends Produkt{
     public int getIlosc() {
         return ilosc;
     }
+
+    public void dodaj(int i){
+        ilosc += i;
+    }
+
+    public void zjedz(int i){
+        ilosc -= i;
+    }
 }

@@ -5,6 +5,7 @@ import com.squareup.moshi.ToJson;
 import pl.edu.mimuw.produkty.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -57,6 +58,7 @@ public class Zasoby {
         }
         return odp;
     }
+
     public Zasoby (double d, JedzeniePaczka j, List<Ubranie> u,
                    List<Narzedzie> n, List<ProgramKomp> p){
             diamenty = d;
@@ -74,6 +76,32 @@ public class Zasoby {
 
     public void dostanDiamenty(double x){
         diamenty += x;
+    }
+
+    public void dostanJedzenie(int i){
+        jedzenie.dodaj(i);
+    }
+
+    public void zaplacJedzenie(int i){
+        jedzenie.zjedz(i);
+    }
+
+
+
+
+    public void dostanProdukty(Produkty typ, List<Produkt> obiekty){
+        switch (typ){
+
+            case UBRANIA:
+                ubrania.addAll((Collection<? extends Ubranie>) obiekty);
+                break;
+            case NARZEDZIA:
+                narzedzia.addAll((Collection<? extends Narzedzie>) obiekty);
+                break;
+            case PROGRAMY:
+                programy.addAll((Collection<? extends ProgramKomp>) obiekty);
+                break;
+        }
     }
 
 }

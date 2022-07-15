@@ -100,6 +100,8 @@ public abstract class Gielda implements IGielda{
             while(ofertaKupSpekulanta.getRodzaj_produktu() != ofertaSpRobotnika.getRodzaj_produktu()){
                 if(iter.hasNext()){
                     ofertaKupSpekulanta = iter.next();
+                }else{
+                    //nie ma juz ofert dla robotnika
                 }
             }//teraz jesteśmy na pierwszym (atrakcyjnym) elemencie danego produktu;
 
@@ -112,9 +114,9 @@ public abstract class Gielda implements IGielda{
                 aktywnyR.getZasoby().dostanDiamenty(suma);
                 suma = 0;
                 //spekulant dostaje przedmioty
-               // ofertaKupSpekulanta.getMojAgent().wezPrzedmiotyZOferty()//todo
+                ofertaKupSpekulanta.getMojAgent().wezPrzedmiotyZOferty(ofertaSpRobotnika, ofertaKupSpekulanta.getIlosc());
                 //aktualizowanie oferty robotnika
-                ofertaSpRobotnika.zabierzSztuki(ofertaKupSpekulanta.getIlosc());
+                //ofertaSpRobotnika.zabierzSztuki(ofertaKupSpekulanta.getIlosc()); automatycznie w wezPrzedmioty
                 historiaCen.get(mojaSymulacja.info.getDzien()).notuj(ofertaSpRobotnika.getRodzaj_produktu(),
                         ofertaKupSpekulanta.getCena(), ofertaKupSpekulanta.getIlosc());
                 //kasowanie oferty spekulanta
